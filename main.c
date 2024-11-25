@@ -11,17 +11,12 @@ typedef struct livro {
 	char editora[50];
 } plivro;
 
-
-//1. Alocar Memória
-
     plivro* livro_aloc(int qtde) {
     
     plivro* vetorLivros = (plivro*)malloc(qtde * sizeof(plivro));
 
     return vetorLivros;
 }
-
-//2. Ler Dados
 
 void livro_ler(plivro* livros){
 	
@@ -41,8 +36,6 @@ void livro_ler(plivro* livros){
     livros->editora[strcspn(livros->editora, "\n")] = '\0';
 }
 
-//3. Exibir Dados
-
 void livro_exibe(plivro* livros){
 	printf("Nome: %s\n", livros -> nome);
 	printf("ISBN: %s\n", livros -> isbn);
@@ -52,7 +45,6 @@ void livro_exibe(plivro* livros){
 	
 }
 
-//4. Liberar Memória
 
 void livro_desaloca(plivro* livros){
 	
