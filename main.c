@@ -63,22 +63,25 @@ void livro_desaloca(plivro* livros){
 int main() {
 	
     int qtdeLivros;
+    int i;
 
     scanf("%d", &qtdeLivros);
     getchar();
 
     plivro* livros = livro_aloc(qtdeLivros);
 
-    for (int i = 0; i < qtdeLivros; i++) {
+    for ( i = 0; i < qtdeLivros; i++) {
         livro_ler(&livros[i]);
     }
 
-    for (int i = 0; i < qtdeLivros; i++) {
-        printf("\nLivro %d:\n", i + 1);
+    for ( i = 0; i < qtdeLivros ; i++) {
+        printf("Livro %d:\n", i + 1);
         livro_exibe(&livros[i]);
     }
-
-
+    
+if( i < qtdeLivros){
+	printf("\n");
+}
     livro_desaloca(livros);
 
     return 0;
