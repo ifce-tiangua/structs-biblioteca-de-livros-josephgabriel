@@ -75,7 +75,7 @@ int main() {
     }
 
     for ( i = 0; i < qtdeLivros ; i++) {
-        printf("Livro %d:\n", i + 1);
+        printf("\nLivro %d:\n", i + 1);
         livro_exibe(&livros[i]);
     }
     
