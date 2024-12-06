@@ -41,7 +41,7 @@ void livro_exibe(plivro* livros){
 	printf("ISBN: %s\n", livros -> isbn);
 	printf("Preço: R$ %.2f\n", livros -> preco);
 	printf("Score: %d\n",  livros -> score);
-	printf("Editora: %s\n", livros -> editora);
+	printf("Editora: %s", livros -> editora);
 	
 }
 
