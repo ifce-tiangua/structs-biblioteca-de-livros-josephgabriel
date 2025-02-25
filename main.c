@@ -30,7 +30,7 @@ void livro_ler(PLivro livros, int Qt) {
 
 void livro_exibir(PLivro livros, int Qt) {
     for (int i = 0; i < Qt; i++) {
-      printf("Livro %d:\n", i + 1);
+      printf("\nLivro %d:\n", i + 1);
       printf("Nome: %s\n", livros[i].nome);
       printf("ISBN: %s\n", livros[i].isbn);
       printf("Preço: R$ %.2f\n", livros[i].preco);
