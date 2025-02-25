@@ -54,6 +54,7 @@ int main() {
 
     PLivro livros = livro_criar(Qt);
     if (livros == NULL) {
+        printf("Sem livros\n");
         return 1;
     }
 
