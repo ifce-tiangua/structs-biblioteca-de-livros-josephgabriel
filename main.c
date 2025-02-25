@@ -51,10 +51,11 @@ void livro_destruir(PLivro livros) {
 int main() {
     int Qt;
     scanf("%d", &Qt);
-
+if(Qt == 0){
+     printf("Sem livros\n");
+        }
     PLivro livros = livro_criar(Qt);
     if (livros == NULL) {
-        printf("Sem livros\n");
         return 1;
     }
 
