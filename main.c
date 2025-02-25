@@ -1,81 +1,67 @@
-#include<stdio.h>
+#include <stdio.h>
 #include <stdlib.h>
-#include <string.h>
 
-typedef struct livro {
-	
-	char nome[100];
-	char isbn[20];
-	float preco;
-	int score;
-	char editora[50];
-} plivro;
+typedef struct {
+    char nome[100];
+    char isbn[20];
+    float preco;
+    int score;
+    char editora[100];
+} TLivro;
 
-    plivro* livro_aloc(int qtde) {
-    
-    plivro* vetorLivros = (plivro*)malloc(qtde * sizeof(plivro));
+typedef TLivro* PLivro;
 
-    return vetorLivros;
-}
 
-void livro_ler(plivro* livros){
-	
-	fgets(livros->nome, sizeof(livros->nome), stdin);
-	livros->nome[strcspn(livros->nome, "\n")] = '\0';
-	
-	fgets(livros->isbn, sizeof(livros->isbn), stdin);
-    livros->isbn[strcspn(livros->isbn, "\n")] = '\0';
-	
-	scanf("%f", &livros -> preco);
-	getchar();
-	
-	scanf("%d", &livros -> score);
-	getchar();
-	
-    fgets(livros->editora, sizeof(livros->editora), stdin);
-    livros->editora[strcspn(livros->editora, "\n")] = '\0';
-}
-
-void livro_exibe(plivro* livros){
-	printf("Nome: %s\n", livros -> nome);
-	printf("ISBN: %s\n", livros -> isbn);
-	printf("Preço: R$ %.2f\n", livros -> preco);
-	printf("Score: %d\n",  livros -> score);
-	printf("Editora: %s", livros -> editora);
-	
+PLivro livro_criar(int Qt) {
+    return (PLivro) malloc(Qt * sizeof(TLivro));
 }
 
 
-void livro_desaloca(plivro* livros){
-	
-	free(livros);
-	
+void livro_ler(PLivro livros, int Qt) {
+    for (int i = 0; i < Qt; i++) {
+
+        scanf(" %s", livros[i].nome);
+
+        scanf(" %s", livros[i].isbn);
+
+        scanf(" %f", &livros[i].preco);
+
+        scanf(" %d", &livros[i].score);
+
+        scanf(" %s", livros[i].editora);
+    }
+}
+
+
+void livro_exibir(PLivro livros, int Qt) {
+
+    for (int i = 0; i < Qt; i++) {
+        printf("\nLivro %d:\n", i + 1);
+        printf("Nome: %s\n", livros[i].nome);
+        printf("ISBN: %s\n", livros[i].isbn);
+        printf("Preco: R$ %.2f\n", livros[i].preco);
+        printf("Score: %d\n", livros[i].score);
+        printf("Editora: %s\n", livros[i].editora);
+    }
+}
+
+
+void livro_destruir(PLivro livros) {
+    free(livros);
 }
 
 int main() {
-	
-    int qtdeLivros;
-    int i;
+    int Qt;
+    scanf("%d", &Qt);
 
-    scanf("%d", &qtdeLivros);
-    getchar();
-
-    plivro* livros = livro_aloc(qtdeLivros);
-
-    for ( i = 0; i < qtdeLivros; i++) {
-        livro_ler(&livros[i]);
+    PLivro livros = livro_criar(Qt);
+    if (livros == NULL) {
+        return 1;
     }
 
-    for ( i = 0; i < qtdeLivros ; i++) {
-        printf("\nLivro %d:\n", i + 1);
-        livro_exibe(&livros[i]);
-    }
-    
-if( i < qtdeLivros){
-	printf("\n");
-}
-    livro_desaloca(livros);
+    livro_ler(livros, Qt);
+    livro_exibir(livros, Qt);
+    livro_destruir(livros);
 
     return 0;
 }
-
