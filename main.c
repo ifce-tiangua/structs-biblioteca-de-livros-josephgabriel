@@ -31,7 +31,7 @@ void livro_ler(PLivro livros, int Qt) {
 void livro_exibir(PLivro livros, int Qt) {
     for (int i = 0; i < Qt; i++) {
       if (i==0){
-            printf("Livro %d\n", i+1);
+            printf("Livro %d:\n", i+1);
                } else {
                 printf("\nLivro %d:\n", i + 1);
                   }
