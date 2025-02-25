@@ -19,29 +19,23 @@ PLivro livro_criar(int Qt) {
 
 void livro_ler(PLivro livros, int Qt) {
     for (int i = 0; i < Qt; i++) {
-
-        scanf(" %s", livros[i].nome);
-
+        scanf(" %[^\n]", livros[i].nome);
         scanf(" %s", livros[i].isbn);
-
         scanf(" %f", &livros[i].preco);
-
         scanf(" %d", &livros[i].score);
-
-        scanf(" %s", livros[i].editora);
+        scanf(" %[^\n]", livros[i].editora);
     }
 }
 
 
 void livro_exibir(PLivro livros, int Qt) {
-
     for (int i = 0; i < Qt; i++) {
-        printf("\nLivro %d:\n", i + 1);
-        printf("Nome: %s\n", livros[i].nome);
-        printf("ISBN: %s\n", livros[i].isbn);
-        printf("Preco: R$ %.2f\n", livros[i].preco);
-        printf("Score: %d\n", livros[i].score);
-        printf("Editora: %s\n", livros[i].editora);
+      printf("\nLivro %d:\n", i + 1);
+      printf("Nome: %s\n", livros[i].nome);
+      printf("ISBN: %s\n", livros[i].isbn);
+      printf("Preco: R$ %.2f\n", livros[i].preco);
+      printf("Score: %d\n", livros[i].score);
+      printf("Editora: %s\n", livros[i].editora);
     }
 }
 
